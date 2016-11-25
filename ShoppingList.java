@@ -7,42 +7,21 @@ import java.util.Scanner;
 public class ShoppingList {
 	public static void main(String[] args){
 		
-//Declaration
-	Attributes[] itemAttributes = new Attributes [7];
-	Attributes[] shoppingList = new Attributes [7];
-	
-	
 //Instantiation and Attribute Assignment
 	//Shopping Catalog Items
-		Attributes chicken = new Attributes();
-			chicken.setitemName("Chicken");
-			chicken.setitemPrice(15.00);
-			chicken.setitemPurchased(false);
-		Attributes eggs = new Attributes();
-			eggs.setitemName("Eggs");
-			eggs.setitemPrice(8.25);
-			eggs.setitemPurchased(false);
-		Attributes vodka = new Attributes();
-			vodka.setitemName("Vodka");
-			vodka.setitemPrice(49.99);
-			vodka.setitemPurchased(false);
-		Attributes water = new Attributes();
-			water.setitemName("Water");
-			water.setitemPrice(12.99);
-			water.setitemPurchased(false);
-		Attributes juice = new Attributes();
-			juice.setitemName("Juice");
-			juice.setitemPrice(9.99);
-			juice.setitemPurchased(false);
-		Attributes fish = new Attributes();
-			fish.setitemName("Fish");
-			fish.setitemPrice(19.99);
-			fish.setitemPurchased(false);
-		Attributes steak = new Attributes();
-			steak.setitemName("Steak");
-			steak.setitemPrice(29.99);
-			steak.setitemPurchased(false);
-	//Scanner
+		Objects chicken = new Objects("Chicken",15.00,false,1);
+		Objects eggs = new Objects("Eggs",8.25,false,1);
+		Objects vodka = new Objects("Vodka",49.99,false,1);
+		Objects water = new Objects("Water",12.99,false,1);
+		Objects juice = new Objects("Juice",9.99,false,1);
+		Objects fish = new Objects("Fish",19.99,false,1);
+		Objects steak = new Objects("Steak",29.99,false,1);
+		Objects empty = new Objects("empty",0.00,false,1);
+//Declaration
+	Attributes[] itemAttributes = new Attributes [7];
+	Attributes[] shoppingList = {empty,empty,empty,empty,empty,empty,empty};
+		
+//Scanner
 		Scanner input = new Scanner(System.in);
 	//Primitive Declaration
 		String answer;
@@ -80,7 +59,7 @@ public class ShoppingList {
 		for (int i=0;i<shoppingList.length;i++) {
 			answer= input.next();
 			if (answer.equalsIgnoreCase("Chicken")) {
-				if(Arrays.asList(shoppingList).contains(chicken)) {
+				if(chicken.equivalence(shoppingList[0])||chicken.equivalence(shoppingList[1])||chicken.equivalence(shoppingList[2])||chicken.equivalence(shoppingList[3])||chicken.equivalence(shoppingList[4])||chicken.equivalence(shoppingList[5])||chicken.equivalence(shoppingList[6])) {
 					System.out.println("You already have that item");
 					i--;
 				}
@@ -89,7 +68,7 @@ public class ShoppingList {
 				}
 			}
 			else if (answer.equalsIgnoreCase("Eggs")) {
-				if(Arrays.asList(shoppingList).contains(eggs)) {
+				if(eggs.equivalence(shoppingList[0])||eggs.equivalence(shoppingList[1])||eggs.equivalence(shoppingList[2])||eggs.equivalence(shoppingList[3])||eggs.equivalence(shoppingList[4])||eggs.equivalence(shoppingList[5])||eggs.equivalence(shoppingList[6])) {
 					System.out.println("You already have that item");
 					i--;
 				}
@@ -98,7 +77,7 @@ public class ShoppingList {
 				}
 			}
 			else if (answer.equalsIgnoreCase("Vodka")) {
-				if(Arrays.asList(shoppingList).contains(vodka)) {
+				if(vodka.equivalence(shoppingList[0])||vodka.equivalence(shoppingList[1])||vodka.equivalence(shoppingList[2])||vodka.equivalence(shoppingList[3])||vodka.equivalence(shoppingList[4])||vodka.equivalence(shoppingList[5])||vodka.equivalence(shoppingList[6])) {
 					System.out.println("You already have that item");
 					i--;
 				}
@@ -107,7 +86,7 @@ public class ShoppingList {
 				}
 			}
 			else if (answer.equalsIgnoreCase("Water")) {
-				if(Arrays.asList(shoppingList).contains(water)) {
+				if(water.equivalence(shoppingList[0])||water.equivalence(shoppingList[1])||water.equivalence(shoppingList[2])||water.equivalence(shoppingList[3])||water.equivalence(shoppingList[4])||water.equivalence(shoppingList[5])||water.equivalence(shoppingList[6])) {
 					System.out.println("You already have that item");
 					i--;
 				}
@@ -116,7 +95,7 @@ public class ShoppingList {
 				}
 			}
 			else if (answer.equalsIgnoreCase("Juice")) {
-				if(Arrays.asList(shoppingList).contains(juice)) {
+				if(juice.equivalence(shoppingList[0])||juice.equivalence(shoppingList[1])||juice.equivalence(shoppingList[2])||juice.equivalence(shoppingList[3])||juice.equivalence(shoppingList[4])||juice.equivalence(shoppingList[5])||juice.equivalence(shoppingList[6])) {
 					System.out.println("You already have that item");
 					i--;
 				}
@@ -125,7 +104,7 @@ public class ShoppingList {
 				}
 			}
 			else if (answer.equalsIgnoreCase("Fish")) {
-				if(Arrays.asList(shoppingList).contains(fish)) {
+				if(fish.equivalence(shoppingList[0])||fish.equivalence(shoppingList[1])||fish.equivalence(shoppingList[2])||fish.equivalence(shoppingList[3])||fish.equivalence(shoppingList[4])||fish.equivalence(shoppingList[5])||fish.equivalence(shoppingList[6])) {
 					System.out.println("You already have that item");
 					i--;
 				}
@@ -134,7 +113,7 @@ public class ShoppingList {
 				}
 			}
 			else if (answer.equalsIgnoreCase("Steak")) {
-				if(Arrays.asList(shoppingList).contains(steak)) {
+				if(steak.equivalence(shoppingList[0])||steak.equivalence(shoppingList[1])||steak.equivalence(shoppingList[2])||steak.equivalence(shoppingList[3])||steak.equivalence(shoppingList[4])||steak.equivalence(shoppingList[5])||steak.equivalence(shoppingList[6])) {
 					System.out.println("You already have that item");
 					i--;
 				}
@@ -226,10 +205,37 @@ public class ShoppingList {
 			else{
 				steak.setItemPrioriy(priority);}
 		}
+	//Selection Sort of Priority
+		
+		//Outer Loop Variable
+		int j; //Inner Loop Variable
+		int minValue; // Minimum Value
+		int minIndex; //Minimum Index Value
+		Attributes temp; //Temporary for Swapping
+		
+			
+		for (int i=0;i<shoppingList.length;i++) {
+			minValue=shoppingList[i].getItemPriority();
+			minIndex=i;
+				for (j=i;j<shoppingList.length;j++) {
+					if(shoppingList[j].getItemPriority()<minValue){
+						minValue=shoppingList[j].getItemPriority();
+						minIndex = j;	
+					}
+				
+				}
+				if(minValue<shoppingList[i].getItemPriority()) {
+					temp=shoppingList[i];
+					shoppingList[i]=shoppingList[minIndex];
+					shoppingList[minIndex]=temp;
+				}
+		}
+		
+		
 	//Priority and Item Display
 		System.out.println("These are your items and set priority");
 		for(int i=0;i<shoppingList.length;i++){
-			System.out.println(itemAttributes[i].getitemName() + "\t" +itemAttributes[i].getItemPriority());
+			System.out.println(shoppingList[i].getitemName() + "\t" +shoppingList[i].getItemPriority());
 		}
 	
 	//Shopping
@@ -238,8 +244,8 @@ public class ShoppingList {
 	System.out.println("You have $"+money+" let's see what you can get in your cart");
 	for(int i=0;i<shoppingList.length;i++){
 		if(shoppingList[i].getitemPurchased()==false) {
-			if(money>shoppingList[i].getitemPrice()){
-				money=money-shoppingList[i].getitemPrice();
+			if(money>(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity())){
+				money=money-(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity());
 				purchase=true;
 				shoppingList[i].setitemPurchased(purchase);
 			}

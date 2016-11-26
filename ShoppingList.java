@@ -1,6 +1,5 @@
 import java.text.DecimalFormat;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -18,12 +17,13 @@ public class ShoppingList {
 		Objects steak = new Objects("Steak",29.99,false,1);
 		Objects empty = new Objects("empty",0.00,false,1);
 //Declaration
+	ArrayList<Objects> shopList = new ArrayList<Objects>();
 	Attributes[] itemAttributes = new Attributes [7];
 	Attributes[] shoppingList = {empty,empty,empty,empty,empty,empty,empty};
 		
 //Scanner
 		Scanner input = new Scanner(System.in);
-	//Primitive Declaration
+//Primitive Declaration
 		String answer;
 		int priority;
 		boolean purchase;
@@ -56,77 +56,113 @@ public class ShoppingList {
 		}
 //Shopping Item Equivalence
 		System.out.println("Select an item from our catalog to be put in your shopping cart");
+		System.out.println("If you type an item more then once you will change its quantity");
+		System.out.println("Type 'done' when you are finished shopping");
+		
 		for (int i=0;i<shoppingList.length;i++) {
 			answer= input.next();
 			if (answer.equalsIgnoreCase("Chicken")) {
-				if(chicken.equivalence(shoppingList[0])||chicken.equivalence(shoppingList[1])||chicken.equivalence(shoppingList[2])||chicken.equivalence(shoppingList[3])||chicken.equivalence(shoppingList[4])||chicken.equivalence(shoppingList[5])||chicken.equivalence(shoppingList[6])) {
-					System.out.println("You already have that item");
+				if(shopList.contains(chicken)) {
+					int quantity=(chicken.getitemQuantity())+1;
+					chicken.setitemQuantitiy(quantity);
+					System.out.println("You now have "+chicken.getitemQuantity()+" "+chicken.getitemName()+"s");
+					
 					i--;
 				}
 				else {
-					shoppingList[i] = chicken;
+					shopList.add(chicken);
 				}
 			}
 			else if (answer.equalsIgnoreCase("Eggs")) {
-				if(eggs.equivalence(shoppingList[0])||eggs.equivalence(shoppingList[1])||eggs.equivalence(shoppingList[2])||eggs.equivalence(shoppingList[3])||eggs.equivalence(shoppingList[4])||eggs.equivalence(shoppingList[5])||eggs.equivalence(shoppingList[6])) {
-					System.out.println("You already have that item");
+				if(shopList.contains(eggs)) {
+					int quantity=(eggs.getitemQuantity())+1;
+					eggs.setitemQuantitiy(quantity);
+					System.out.println("You now have "+eggs.getitemQuantity()+" "+eggs.getitemName()+"s");
+					
 					i--;
 				}
 				else {
-					shoppingList[i] = eggs;
+					shopList.add(eggs);
 				}
 			}
 			else if (answer.equalsIgnoreCase("Vodka")) {
-				if(vodka.equivalence(shoppingList[0])||vodka.equivalence(shoppingList[1])||vodka.equivalence(shoppingList[2])||vodka.equivalence(shoppingList[3])||vodka.equivalence(shoppingList[4])||vodka.equivalence(shoppingList[5])||vodka.equivalence(shoppingList[6])) {
-					System.out.println("You already have that item");
+				if(shopList.contains(vodka)) {
+					int quantity=(vodka.getitemQuantity())+1;
+					vodka.setitemQuantitiy(quantity);
+					System.out.println("You now have "+vodka.getitemQuantity()+" "+vodka.getitemName()+"s");
+					
 					i--;
 				}
 				else {
-					shoppingList[i] = vodka;
+					shopList.add(vodka);
 				}
 			}
 			else if (answer.equalsIgnoreCase("Water")) {
-				if(water.equivalence(shoppingList[0])||water.equivalence(shoppingList[1])||water.equivalence(shoppingList[2])||water.equivalence(shoppingList[3])||water.equivalence(shoppingList[4])||water.equivalence(shoppingList[5])||water.equivalence(shoppingList[6])) {
-					System.out.println("You already have that item");
+				if(shopList.contains(water)) {
+					int quantity=(water.getitemQuantity())+1;
+					water.setitemQuantitiy(quantity);
+					System.out.println("You now have "+water.getitemQuantity()+" "+water.getitemName()+"s");
+					
 					i--;
 				}
 				else {
-					shoppingList[i] = water;
+					shopList.add(water);
 				}
 			}
 			else if (answer.equalsIgnoreCase("Juice")) {
-				if(juice.equivalence(shoppingList[0])||juice.equivalence(shoppingList[1])||juice.equivalence(shoppingList[2])||juice.equivalence(shoppingList[3])||juice.equivalence(shoppingList[4])||juice.equivalence(shoppingList[5])||juice.equivalence(shoppingList[6])) {
-					System.out.println("You already have that item");
+				if(shopList.contains(juice)) {
+					int quantity=(juice.getitemQuantity())+1;
+					juice.setitemQuantitiy(quantity);
+					System.out.println("You now have "+juice.getitemQuantity()+" "+juice.getitemName()+"s");
+					
 					i--;
 				}
 				else {
-					shoppingList[i] = juice;
+					shopList.add(juice);
 				}
 			}
 			else if (answer.equalsIgnoreCase("Fish")) {
-				if(fish.equivalence(shoppingList[0])||fish.equivalence(shoppingList[1])||fish.equivalence(shoppingList[2])||fish.equivalence(shoppingList[3])||fish.equivalence(shoppingList[4])||fish.equivalence(shoppingList[5])||fish.equivalence(shoppingList[6])) {
-					System.out.println("You already have that item");
+				if(shopList.contains(fish)) {
+					int quantity=(fish.getitemQuantity())+1;
+					fish.setitemQuantitiy(quantity);
+					System.out.println("You now have "+fish.getitemQuantity()+" "+fish.getitemName()+"s");
+					
 					i--;
 				}
 				else {
-					shoppingList[i] = fish;
+					shopList.add(fish);
 				}
 			}
 			else if (answer.equalsIgnoreCase("Steak")) {
-				if(steak.equivalence(shoppingList[0])||steak.equivalence(shoppingList[1])||steak.equivalence(shoppingList[2])||steak.equivalence(shoppingList[3])||steak.equivalence(shoppingList[4])||steak.equivalence(shoppingList[5])||steak.equivalence(shoppingList[6])) {
-					System.out.println("You already have that item");
+				if(shopList.contains(steak)) {
+					int quantity=(steak.getitemQuantity())+1;
+					steak.setitemQuantitiy(quantity);
+					System.out.println("You now have "+steak.getitemQuantity()+" "+steak.getitemName()+"s");
+					
 					i--;
 				}
 				else {
-					shoppingList[i] = steak;
+					shopList.add(steak);
 				}
 			}
+			else if (answer.equalsIgnoreCase("Done")) {
+				break;}
 			else {
 				System.out.println("That is an invlaid entry");
 				i--;
 			}
 				
 		}
+//Display Items and Quantities
+			System.out.println("This is your current shopping list");
+			System.out.println("Item \t   Quantity");
+			System.out.println("--------------------------------");
+		for (Objects object : shopList ) {
+			System.out.println(object.getitemName()+"\t\t"+object.itemQuantity);
+		}
+
+//Change of List if needed
+	
 		
 //Priority Setting and Equivalence
 		System.out.println("Now that you have chosen your items, lets set a priority to each");
@@ -240,12 +276,13 @@ public class ShoppingList {
 	
 	//Shopping
 	System.out.println("Perfect now how about you go shopping");
-	double money = 59.00;
-	System.out.println("You have $"+money+" let's see what you can get in your cart");
+	System.out.println("What is your budget?");
+	double bankAccount = input.nextInt();
+	System.out.println("You have $"+bankAccount+" let's see what you can get in your cart");
 	for(int i=0;i<shoppingList.length;i++){
 		if(shoppingList[i].getitemPurchased()==false) {
-			if(money>(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity())){
-				money=money-(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity());
+			if(bankAccount>(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity())){
+				bankAccount=bankAccount-(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity());
 				purchase=true;
 				shoppingList[i].setitemPurchased(purchase);
 			}
@@ -264,8 +301,8 @@ public class ShoppingList {
 			System.out.println("You were unable to purchase "+shoppingList[i].getitemName()+ " for "+shoppingList[i].getitemPrice());
 		}
 	}	
-	new DecimalFormat("##.##").format(money);
-	System.out.println("You have $"+new DecimalFormat("##.##").format(money)+" left. Have a good day and come back soon!");
+	new DecimalFormat("##.##").format(bankAccount);
+	System.out.println("You have $"+new DecimalFormat("##.##").format(bankAccount)+" left. Have a good day and come back soon!");
 	
 		
 

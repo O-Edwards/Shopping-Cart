@@ -77,7 +77,7 @@ public class ShoppingList {
 				if(shopList.contains(eggs)) {
 					int quantity=(eggs.getitemQuantity())+1;
 					eggs.setitemQuantitiy(quantity);
-					System.out.println("You now have "+eggs.getitemQuantity()+" "+eggs.getitemName()+"s");
+					System.out.println("You now have "+eggs.getitemQuantity()+" cartridges of "+eggs.getitemName());
 					
 					i--;
 				}
@@ -89,7 +89,7 @@ public class ShoppingList {
 				if(shopList.contains(vodka)) {
 					int quantity=(vodka.getitemQuantity())+1;
 					vodka.setitemQuantitiy(quantity);
-					System.out.println("You now have "+vodka.getitemQuantity()+" "+vodka.getitemName()+"s");
+					System.out.println("You now have "+vodka.getitemQuantity()+" Handles of "+vodka.getitemName());
 					
 					i--;
 				}
@@ -101,7 +101,7 @@ public class ShoppingList {
 				if(shopList.contains(water)) {
 					int quantity=(water.getitemQuantity())+1;
 					water.setitemQuantitiy(quantity);
-					System.out.println("You now have "+water.getitemQuantity()+" "+water.getitemName()+"s");
+					System.out.println("You now have "+water.getitemQuantity()+" Bottles of "+water.getitemName());
 					
 					i--;
 				}
@@ -113,7 +113,7 @@ public class ShoppingList {
 				if(shopList.contains(juice)) {
 					int quantity=(juice.getitemQuantity())+1;
 					juice.setitemQuantitiy(quantity);
-					System.out.println("You now have "+juice.getitemQuantity()+" "+juice.getitemName()+"s");
+					System.out.println("You now have "+juice.getitemQuantity()+" Bottles of "+juice.getitemName());
 					
 					i--;
 				}
@@ -125,7 +125,7 @@ public class ShoppingList {
 				if(shopList.contains(fish)) {
 					int quantity=(fish.getitemQuantity())+1;
 					fish.setitemQuantitiy(quantity);
-					System.out.println("You now have "+fish.getitemQuantity()+" "+fish.getitemName()+"s");
+					System.out.println("You now have "+fish.getitemQuantity()+" packages of "+fish.getitemName()+"fillets");
 					
 					i--;
 				}
@@ -154,15 +154,42 @@ public class ShoppingList {
 				
 		}
 //Display Items and Quantities
-			System.out.println("This is your current shopping list");
+			System.out.println("");
+			System.out.println("This is your current shopping list:\n");
 			System.out.println("Item \t   Quantity");
 			System.out.println("--------------------------------");
 		for (Objects object : shopList ) {
 			System.out.println(object.getitemName()+"\t\t"+object.itemQuantity);
 		}
+		System.out.println("");
 
-//Change of List if needed
-	
+//Alter List Quantities
+	System.out.println("Would you like to change the quantity for any of your items?");
+	answer=input.next();
+	if (answer.equalsIgnoreCase("no")) {
+		System.out.println("\n");
+	}
+	else if (answer.equalsIgnoreCase("yes")) {
+		System.out.println("Which Item?");
+		answer=input.next();
+			if (answer.equalsIgnoreCase("chicken")) {
+				if (shopList.contains(chicken)){
+					System.out.println("What quantity woulld you like to set");
+					int quantity=input.nextInt();
+					chicken.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+chicken.getitemQuantity()+" "+chicken.getitemName()+"(s)\n");}
+				else {
+					System.out.println("You dont have "+chicken.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
+					shopList.add(chicken);
+					int quantity=input.nextInt();
+					chicken.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+chicken.getitemQuantity()+" "+chicken.getitemName()+"(s)\n");}
+			}
+	}
+		
+	else {
+		System.out.println("Your answer is invalid, So I'll just assume that you'd like to continue\n");
+	}
 		
 //Priority Setting and Equivalence
 		System.out.println("Now that you have chosen your items, lets set a priority to each");

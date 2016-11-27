@@ -26,15 +26,8 @@ public abstract class Attributes {
 			return itemPriority;
 		}
 		public void setItemPrioriy(int itemPriority) {
-			for(int i=0;i<2;i++) {
-				if (itemPriority>0&&itemPriority<=7) {
 					this.itemPriority = itemPriority;
-					}
-				else 
-					{System.out.println("Please try again, Priority must be between 1 and 7");
-					i--;
-					break;}
-			}
+		
 		}
 		
 		public int itemQuantity;

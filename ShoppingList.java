@@ -163,169 +163,203 @@ public class ShoppingList {
 		}
 		System.out.println("");
 
-//Alter List Quantities
+//Alter List and Quantities
 	System.out.println("Would you like to change the quantity for any of your items?");
 	answer=input.next();
 	if (answer.equalsIgnoreCase("no")) {
 		System.out.println("\n");
 	}
+	
 	else if (answer.equalsIgnoreCase("yes")) {
-		System.out.println("Which Item?");
-		answer=input.next();
+		System.out.println("Which Item? Type 'done' when finished");
+		for (int i = 0;i<shoppingList.length;i++) {
+			answer=input.next();
 			if (answer.equalsIgnoreCase("chicken")) {
 				if (shopList.contains(chicken)){
 					System.out.println("What quantity woulld you like to set");
 					int quantity=input.nextInt();
 					chicken.setitemQuantitiy(quantity);
-					System.out.println("Ok you now have "+chicken.getitemQuantity()+" "+chicken.getitemName()+"(s)\n");}
+					System.out.println("Ok you now have "+chicken.getitemQuantity()+" "+chicken.getitemName()+"(s)\n");
+				    System.out.println("What other item? When you are done type 'done'");}
 				else {
 					System.out.println("You dont have "+chicken.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
 					shopList.add(chicken);
 					int quantity=input.nextInt();
 					chicken.setitemQuantitiy(quantity);
-					System.out.println("Ok you now have "+chicken.getitemQuantity()+" "+chicken.getitemName()+"(s)\n");}
+					System.out.println("Ok you now have "+chicken.getitemQuantity()+" "+chicken.getitemName()+"(s)");
+					System.out.println("What other item? When you are done type 'done'");}
 			}
-	}
+			else if (answer.equalsIgnoreCase("eggs")) {
+				if (shopList.contains(eggs)){
+					System.out.println("What quantity woulld you like to set");
+					int quantity=input.nextInt();
+					eggs.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+eggs.getitemQuantity()+" "+eggs.getitemName()+"catridge(s)\n");
+				    System.out.println("What other item? When you are done type 'done'");}
+				else {
+					System.out.println("You dont have "+eggs.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
+					shopList.add(eggs);
+					int quantity=input.nextInt();
+					eggs.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+eggs.getitemQuantity()+" "+eggs.getitemName()+"cartridge(s)\n");
+					System.out.println("What other item? When you are done type 'done'");}
+			}
+			else if (answer.equalsIgnoreCase("vodka")) {
+				if (shopList.contains(vodka)){
+					System.out.println("What quantity woulld you like to set");
+					int quantity=input.nextInt();
+					vodka.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+vodka.getitemQuantity()+" "+vodka.getitemName()+"handle(s)\n");
+				    System.out.println("What other item? When you are done type 'done'");}
+				else {
+					System.out.println("You dont have "+vodka.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
+					shopList.add(vodka);
+					int quantity=input.nextInt();
+					vodka.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+vodka.getitemQuantity()+" "+vodka.getitemName()+"handle(s)\n");
+					System.out.println("What other item? When you are done type 'done'");}
+			}
+			else if (answer.equalsIgnoreCase("water")) {
+				if (shopList.contains(water)){
+					System.out.println("What quantity woulld you like to set");
+					int quantity=input.nextInt();
+					water.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+water.getitemQuantity()+" "+water.getitemName()+"bottles(s)\n");
+				    System.out.println("What other item? When you are done type 'done'");}
+				else {
+					System.out.println("You dont have "+water.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
+					shopList.add(water);
+					int quantity=input.nextInt();
+					water.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+water.getitemQuantity()+" "+water.getitemName()+"bottle(s)\n");
+					System.out.println("What other item? When you are done type 'done'");}
+			}
+			else if (answer.equalsIgnoreCase("juice")) {
+				if (shopList.contains(juice)){
+					System.out.println("What quantity woulld you like to set");
+					int quantity=input.nextInt();
+					juice.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+juice.getitemQuantity()+" "+juice.getitemName()+"bottle(s)\n");
+				    System.out.println("What other item? When you are done type 'done'");}
+				else {
+					System.out.println("You dont have "+juice.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
+					shopList.add(juice);
+					int quantity=input.nextInt();
+					juice.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+juice.getitemQuantity()+" "+juice.getitemName()+"bottle(s)\n");
+					System.out.println("What other item? When you are done type 'done'");}
+			}
+			else if (answer.equalsIgnoreCase("fish")) {
+				if (shopList.contains(fish)){
+					System.out.println("What quantity woulld you like to set");
+					int quantity=input.nextInt();
+					fish.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+fish.getitemQuantity()+" "+fish.getitemName()+"(s)\n");
+				    System.out.println("What other item? When you are done type 'done'");}
+				else {
+					System.out.println("You dont have "+fish.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
+					shopList.add(fish);
+					int quantity=input.nextInt();
+					fish.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+fish.getitemQuantity()+" "+fish.getitemName()+"(s)\n");
+					System.out.println("What other item? When you are done type 'done'");}
+			}
+			else if (answer.equalsIgnoreCase("steak")) {
+				if (shopList.contains(steak)){
+					System.out.println("What quantity woulld you like to set");
+					int quantity=input.nextInt();
+					steak.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+steak.getitemQuantity()+" "+steak.getitemName()+"(s)\n");
+				    System.out.println("What other item? When you are done type 'done'");}
+				else {
+					System.out.println("You dont have "+steak.getitemName()+ " on your list. But we can just add it. What quantity would you like?");
+					shopList.add(steak);
+					int quantity=input.nextInt();
+					steak.setitemQuantitiy(quantity);
+					System.out.println("Ok you now have "+steak.getitemQuantity()+" "+steak.getitemName()+"(s)\n");
+					System.out.println("What other item? When you are done type 'done'");}
+			}
+			
+			else if (answer.equalsIgnoreCase("done")) {
+				break;
+			}
+			else 
+				System.out.println("Your answer is invalid, So I'll just assume that you'd like to continue\n");
+		}
 		
+	}
 	else {
 		System.out.println("Your answer is invalid, So I'll just assume that you'd like to continue\n");
 	}
-		
+			
 //Priority Setting and Equivalence
-		System.out.println("Now that you have chosen your items, lets set a priority to each");
-		System.out.println("When selecting a priority choose a number from 1 to 7 with no repeats");
-		System.out.println("What priority would you like to set for "+chicken.getitemName());
-		
-		//Chicken Priority
+	for (Objects object : shopList ) {
+		System.out.println("What priority would you like to set for "+object.getitemName());
 		priority = input.nextInt();
-		chicken.setItemPrioriy(priority);
+		object.setItemPrioriy(priority);
 		
-		//Eggs Priority
-		System.out.println("What priority would you like to set for "+eggs.getitemName());
-		for(int i=0;i<1;i++) {
-			priority = input.nextInt();
-			if (chicken.getItemPriority()==priority) {
-				System.out.println("You have already used that priority try again");
-				i--;
-			}
-			else{
-				eggs.setItemPrioriy(priority);
-			}
-		}
-		//Vodka Priority
-		System.out.println("What priority would you like to set for "+vodka.getitemName());
-		for(int i=0;i<1;i++) {
-			priority = input.nextInt();
-			if (chicken.getItemPriority()==priority||eggs.getItemPriority()==priority) {
-				System.out.println("You have already used that priority try again");
-				i--;
-			}
-			else{
-				vodka.setItemPrioriy(priority);}
-		}
-		//Water Priority
-		System.out.println("What priority would you like to set for "+water.getitemName());
-		for(int i=0;i<1;i++) {
-			priority = input.nextInt();
-			if (chicken.getItemPriority()==priority||eggs.getItemPriority()==priority||vodka.getItemPriority()==priority) {
-				System.out.println("You have already used that priority try again");
-				i--;
-			}
-			else{
-				water.setItemPrioriy(priority);}
-		}
-		//Juice Priority
-		System.out.println("What priority would you like to set for "+juice.getitemName());
-		for(int i=0;i<1;i++) {
-			priority = input.nextInt();
-			if (chicken.getItemPriority()==priority||eggs.getItemPriority()==priority||vodka.getItemPriority()==priority||water.getItemPriority()==priority) {
-				System.out.println("You have already used that priority try again");
-				i--;
-			}
-			else{
-				juice.setItemPrioriy(priority);}
-		}
-		//Fish Priority
-		System.out.println("What priority would you like to set for "+fish.getitemName());
-		for(int i=0;i<1;i++) {
-			priority = input.nextInt();
-			if (chicken.getItemPriority()==priority||eggs.getItemPriority()==priority||vodka.getItemPriority()==priority||water.getItemPriority()==priority||juice.getItemPriority()==priority) {
-				System.out.println("You have already used that priority try again");
-				i--;
-				
-			}
-			else{
-				fish.setItemPrioriy(priority);}
-		}
-		//Steak Priority
-		System.out.println("What priority would you like to set for "+steak.getitemName());
-		for(int i=0;i<1;i++) {
-			priority = input.nextInt();
-			if (chicken.getItemPriority()==priority||eggs.getItemPriority()==priority||vodka.getItemPriority()==priority||water.getItemPriority()==priority||fish.getItemPriority()==priority||juice.getItemPriority()==priority) {
-				System.out.println("You have already used that priority try again");
-				i--;
-			}
-			else{
-				steak.setItemPrioriy(priority);}
-		}
-	//Selection Sort of Priority
-		
-		//Outer Loop Variable
+	}
+//Selection Sort of Priority
+	//Outer Loop Variable
 		int j; //Inner Loop Variable
 		int minValue; // Minimum Value
 		int minIndex; //Minimum Index Value
-		Attributes temp; //Temporary for Swapping
+		Objects temp; //Temporary for Swapping
 		
 			
-		for (int i=0;i<shoppingList.length;i++) {
-			minValue=shoppingList[i].getItemPriority();
+		for (int i=0;i<shopList.size();i++) {
+			minValue=shopList.get(i).getItemPriority();
 			minIndex=i;
-				for (j=i;j<shoppingList.length;j++) {
-					if(shoppingList[j].getItemPriority()<minValue){
-						minValue=shoppingList[j].getItemPriority();
+				for (j=i;j<shopList.size();j++) {
+					if(shopList.get(j).getItemPriority()<minValue){
+						minValue=shopList.get(j).getItemPriority();
 						minIndex = j;	
 					}
 				
 				}
-				if(minValue<shoppingList[i].getItemPriority()) {
-					temp=shoppingList[i];
-					shoppingList[i]=shoppingList[minIndex];
-					shoppingList[minIndex]=temp;
+				if(minValue<shopList.get(i).getItemPriority()) {
+					temp=shopList.get(i);
+					shopList.set(i, shopList.get(minIndex));
+					shopList.set(minIndex, temp);
 				}
 		}
 		
 		
-	//Priority and Item Display
-		System.out.println("These are your items and set priority");
-		for(int i=0;i<shoppingList.length;i++){
-			System.out.println(shoppingList[i].getitemName() + "\t" +shoppingList[i].getItemPriority());
+	//Shopping List Display
+		System.out.println("Your current Shopping List:\n");
+		System.out.println("Item \t   Quantity \t  Priority");
+		System.out.println("--------------------------------");
+		for (Objects object : shopList ) {
+			System.out.println(object.getitemName()+"\t\t"+object.getitemQuantity()+"\t\t"+object.getItemPriority());
 		}
-	
+		System.out.println("\n");
+		
 	//Shopping
 	System.out.println("Perfect now how about you go shopping");
 	System.out.println("What is your budget?");
-	double bankAccount = input.nextInt();
+	double bankAccount = input.nextDouble();
 	System.out.println("You have $"+bankAccount+" let's see what you can get in your cart");
-	for(int i=0;i<shoppingList.length;i++){
-		if(shoppingList[i].getitemPurchased()==false) {
-			if(bankAccount>(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity())){
-				bankAccount=bankAccount-(shoppingList[i].getitemPrice()*shoppingList[i].getitemQuantity());
+	
+	for(int i=0;i<shopList.size();i++){
+		if(shopList.get(i).getitemPurchased()==false) {
+			if(bankAccount>(shopList.get(i).getitemPrice()*shopList.get(i).getitemQuantity())){
+				bankAccount=bankAccount-(shopList.get(i).getitemPrice()*shopList.get(i).getitemQuantity());
 				purchase=true;
-				shoppingList[i].setitemPurchased(purchase);
+				shopList.get(i).setitemPurchased(purchase);
 			}
 			else {
 				continue;}
 		}
 	}
 	
-	for (int i=0;i<shoppingList.length;i++) {
-		if (shoppingList[i].getitemPurchased()==true) {
-			System.out.println("You have purchased "+shoppingList[i].getitemName()+ " for "+shoppingList[i].getitemPrice());
+	for (int i=0;i<shopList.size();i++) {
+		if (shopList.get(i).getitemPurchased()==true) {
+			System.out.println("You have purchased "+shopList.get(i).getitemQuantity()+" "+shopList.get(i).getitemName()+"(s)"+ " for "+(shopList.get(i).getitemPrice()*shopList.get(i).getitemQuantity()));
 		}
 	}
-	for (int i=0;i<shoppingList.length;i++) {
-		if (shoppingList[i].getitemPurchased()==false) {
-			System.out.println("You were unable to purchase "+shoppingList[i].getitemName()+ " for "+shoppingList[i].getitemPrice());
+	for (int i=0;i<shopList.size();i++) {
+		if (shopList.get(i).getitemPurchased()==false) {
+			System.out.println("You were unable to purchase "+shopList.get(i).getitemName()+ " for "+shopList.get(i).getitemPrice());
 		}
 	}	
 	new DecimalFormat("##.##").format(bankAccount);

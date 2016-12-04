@@ -1,10 +1,10 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
-
-public class ShoppingList {
-	public static void main(String[] args){
+public class ShoppingList implements Output {
+	public static void main(String[] args) { 
 		
 //Instantiation and Attribute Assignment
 	//Shopping Catalog Items
@@ -37,10 +37,27 @@ public class ShoppingList {
 		itemAttributes[6]= steak;
 
 //Greeting
-		System.out.println("Welcome to Tosin-E-Mart, would you like to see our catalog of items");
+		System.out.println("Welcome to Tosin-E-Mart!");
+		
+//Name Acquisition
+		boolean good = false;
+		do{
+			System.out.print("Before we begin what is your name?");
+			String name = input.next();
+			try {
+				checkForNum(name);
+				good=true;}
+			catch(MustBeAllLettersException e){
+				System.out.println(e+ "\n");
+			}
+		}
+		while(good==false);
+		
+//Catalog View Proposal
+		System.out.println("Okay, what would you like to see our Catalog of items?" );
 //Response
 		answer = input.next();
-
+	
 //Catalog View Loop
 		if (answer.equalsIgnoreCase("Yes")) {
 			for (int i=0;i<itemAttributes.length;i++) {
@@ -171,7 +188,7 @@ public class ShoppingList {
 	}
 	
 	else if (answer.equalsIgnoreCase("yes")) {
-		System.out.println("Which Item? Type 'done' when finished");
+		System.out.print("Which Item? Type 'done' when finished: ");
 		for (int i = 0;i<shoppingList.length;i++) {
 			answer=input.next();
 			if (answer.equalsIgnoreCase("chicken")) {
@@ -291,14 +308,23 @@ public class ShoppingList {
 	else {
 		System.out.println("Your answer is invalid, So I'll just assume that you'd like to continue\n");
 	}
+	
+	
+	
 			
 //Priority Setting and Equivalence
-	for (Objects object : shopList ) {
-		System.out.println("What priority would you like to set for "+object.getitemName());
-		priority = input.nextInt();
-		object.setItemPrioriy(priority);
-		
-	}
+		try {
+			for (Objects object : shopList ) {
+				System.out.println("What priority would you like to set for "+object.getitemName());
+				priority = input.nextInt();
+				object.setItemPrioriy(priority);
+			}
+		}
+	catch(Exception e) {
+		System.out.println("You picked an invalid entry. Please try again");
+		}
+
+	
 //Selection Sort of Priority
 	//Outer Loop Variable
 		int j; //Inner Loop Variable
@@ -333,6 +359,29 @@ public class ShoppingList {
 			System.out.println(object.getitemName()+"\t\t"+object.getitemQuantity()+"\t\t"+object.getItemPriority());
 		}
 		System.out.println("\n");
+		
+	//Print to Text File
+		String fileName = "Shopping List.txt"; 
+		PrintWriter output = null;
+		
+		try{
+            	output = new PrintWriter (fileName);
+			}
+		
+        catch (FileNotFoundException e) {
+            System.out.println ("Error opening the file " +
+                    fileName);
+            System.exit (0);
+        }
+		
+		output.println("Your Shopping List is as follows:\n");
+		output.println("Item \t   Quantity \t  Priority");
+		output.println("--------------------------------");
+		for (Objects object : shopList ) {
+			output.println(object.getitemName()+"\t\t"+object.getitemQuantity()+"\t\t"+object.getItemPriority());
+		}
+		output.println("\n");
+		output.close ();
 		
 	//Shopping
 	System.out.println("Perfect now how about you go shopping");
@@ -370,4 +419,18 @@ public class ShoppingList {
 
 
 		}
+
+	private static void checkForNum(String name) throws MustBeAllLettersException {
+		int digit = 0;
+		for(int i=0;i<name.length();i++){
+			if (Character.isDigit(name.charAt(i))){
+				digit++;
+			}
+			
+		}
+		if (digit!=0){
+			throw new MustBeAllLettersException(name);
+		}
+		
+	}
 }

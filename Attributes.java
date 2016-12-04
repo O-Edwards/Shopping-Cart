@@ -26,7 +26,12 @@ public abstract class Attributes {
 			return itemPriority;
 		}
 		public void setItemPrioriy(int itemPriority) {
-					this.itemPriority = itemPriority;
+					try{
+						this.itemPriority = itemPriority;
+					}
+					catch(Exception e) {
+						System.out.println("The value attempted is invalid");
+					}
 		
 		}
 		
@@ -35,7 +40,11 @@ public abstract class Attributes {
 				return itemQuantity;
 			}
 			public void setitemQuantitiy (int quantity) {
-				this.itemQuantity = quantity;
+				try{
+					this.itemQuantity = quantity;}
+				catch(Exception e){
+					System.out.println("The value attempted is invalid");
+				}
 			}
 		
 	private boolean itemPurchased;
@@ -61,6 +70,18 @@ public abstract class Attributes {
 			else {
 			return true;}
 		}
-
+		
+	public static void checkForNum (String name) throws MustBeAllLettersException{
+		int digit = 0;
+		for(int i=0;i<name.length();i++){
+			if (Character.isDigit(name.charAt(i))){
+				digit++;
+			}
+			
+		}
+		if (digit!=0){
+			throw new MustBeAllLettersException(name);
+		}
+	}
 			
 }
